@@ -16,11 +16,13 @@ namespace COMP123_Lesson11B
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("-------------Original deck--------------");
+            Console.WriteLine("-------------Original deck Number of Cards:--------------");
             Deck deck = new Deck();
+            Console.WriteLine("Number of cards: " + deck.Count + "\n");
             Console.WriteLine(deck.ToString());
 
             Console.WriteLine("-----------------Shuffled deck ----------------------");
+            Console.WriteLine("Number of cards: " + deck.Count);
             Console.WriteLine();
             deck.Shuffle();
             Console.WriteLine(deck.ToString());

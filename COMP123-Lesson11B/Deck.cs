@@ -6,7 +6,7 @@ using System.Text;
 /* Name: Wayne Pud
 * Date: July 25, 2017
 * Description: It inherits from the list generic and uses card as base type
-* Version: 0.2 - added shuffle method
+* Version: 0.2 - refactored shuffle method
 */
 
 namespace COMP123_Lesson11B
@@ -70,14 +70,16 @@ namespace COMP123_Lesson11B
 
             for (int card = 0; card < this.Count; card++)
             {
-                firstCard = this._random.Next(0, 52);
-                secondCard = this._random.Next(0, 52);
+                firstCard = this._random.Next(0, this.Count);
+                secondCard = this._random.Next(0, this.Count);
                 tempCard = (Card)this[secondCard].Clone();
+                Card.Overwrite(this[secondCard], this[firstCard]);
+                Card.Overwrite(this[firstCard], tempCard);
 
-                this[secondCard].Face = this[firstCard].Face;
-                this[secondCard].Suit = this[firstCard].Suit;
-                this[firstCard].Face = tempCard.Face;
-                this[firstCard].Suit = tempCard.Suit;
+                //this[secondCard].Face = this[firstCard].Face;
+                //this[secondCard].Suit = this[firstCard].Suit;
+                //this[firstCard].Face = tempCard.Face;
+                //this[firstCard].Suit = tempCard.Suit;
             }
         }
     }

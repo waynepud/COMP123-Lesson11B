@@ -71,5 +71,17 @@ namespace COMP123_Lesson11B
         {
             return new Card(this.Face, this.Suit);
         }
+
+        /// <summary>
+        /// This method overwrites the first card with the second card
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        public static void Overwrite(Card first, Card second)
+        {
+            first.Face = second.Face;
+            first.Suit = second.Suit;
+
+        }
     }
 }
