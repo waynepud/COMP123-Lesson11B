@@ -6,12 +6,12 @@ using System.Text;
 /* Name: Wayne Pud
 * Date: July 25, 2017
 * Description: This is a demo for lesson 11
-* Version: 0.1 - added card class
+* Version: 0.2 - implemented the ICloneable interface
 */
 
 namespace COMP123_Lesson11B
 {
-    public class Card
+    public class Card : ICloneable
     {
         //PRIVATE INSTANCE VARIABLES
         private Face _face;
@@ -58,8 +58,18 @@ namespace COMP123_Lesson11B
         }
 
 
+
+
         //PRIVATE METHODS
 
         //PUBLIC METHODS
+        /// <summary>
+        /// This method overrides the built-in Clone methods
+        /// </summary>
+        /// <returns></returns>
+        public object Clone()
+        {
+            return new Card(this.Face, this.Suit);
+        }
     }
 }
