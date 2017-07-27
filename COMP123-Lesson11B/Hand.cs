@@ -43,6 +43,10 @@ namespace COMP123_Lesson11B
             return outputString;
         }
 
+        /// <summary>
+        /// This public highestcards method will sort and show the highest value cards
+        /// </summary>
+        /// <param name="hand"></param>
         public void HighestCards(Hand hand)
         {
             var handSorted = from cards in hand orderby cards.Face descending select cards.Face;
