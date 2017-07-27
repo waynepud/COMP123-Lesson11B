@@ -6,7 +6,7 @@ using System.Text;
 /* Name: Wayne Pud
 * Date: July 25, 2017
 * Description: It inherits from the CardList Abstract class
-* Version: 0.5 - refactored to ToString method to include a header
+* Version: 0.5 - refactored the ToString method to include a header
 */
 
 namespace COMP123_Lesson11B
