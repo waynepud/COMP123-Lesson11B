@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
  /* Name: Wayne Pud
- * Date: July 25, 2017
+ * Date: July 27, 2017
  * Description: This is a demo for lesson 11
- * Version: 0.3 - testing shuffle
+ * Version: 0.5 - tested lab25 for dealing 5 cards, sorting and showing highest value cards
  */
 
 namespace COMP123_Lesson11B
@@ -18,14 +18,33 @@ namespace COMP123_Lesson11B
         {
 
             Deck deck = new Deck();
+            Hand hand = new Hand();
 
+            Console.WriteLine("-----------------Original Deck-----------------");
             Console.WriteLine(deck.ToString());
+
 
             Console.WriteLine("-----------------Shuffled deck ----------------------");
-            Console.WriteLine("Number of cards: " + deck.Count);
-            Console.WriteLine();
             deck.Shuffle();
             Console.WriteLine(deck.ToString());
+
+
+
+            //hand.Add(deck.Deal1());
+            //Console.WriteLine(hand.ToString());
+            //hand.Add(deck.Deal1());
+            //Console.WriteLine(hand.ToString());
+            //Console.WriteLine();
+            //Console.WriteLine(deck.ToString());
+
+            //hand = deck.Deal5(); //moves the top 5 cards from the deck to the hand object
+
+            hand = deck.Deal5();
+            Console.WriteLine("");
+            Console.WriteLine(hand.ToString());
+
+            hand.HighestCards(hand);
+
         }
     }
 }

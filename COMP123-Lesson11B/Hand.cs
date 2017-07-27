@@ -6,7 +6,7 @@ using System.Text;
 /* Name: Wayne Pud
 * Date: July 27, 2017
 * Description: This is the hand class
-* Version: 0.1 - Created the hand class
+* Version: 0.2 - Added the highestcards method for lab assignmemnt
 */
 
 namespace COMP123_Lesson11B
@@ -31,8 +31,8 @@ namespace COMP123_Lesson11B
         public override string ToString()
         {
             string outputString = "";
-            outputString += ("-------------Hand = Number of Cards:--------------");
-            outputString += ("Number of cards: " + this.Count + "\n");
+            outputString += ("======== Current Hand ========\n");
+            outputString += ("===== Number of cards: " + this.Count + " ======\n");
 
 
             foreach (Card card in this)
@@ -41,6 +41,27 @@ namespace COMP123_Lesson11B
             }
 
             return outputString;
+        }
+
+        public void HighestCards(Hand hand)
+        {
+            var handSorted = from cards in hand orderby cards.Face descending select cards.Face;
+            Console.WriteLine("=== The sorted hand values in descending order ===");
+            foreach (var c in handSorted)
+            {
+                Console.WriteLine(c);
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("=== The highest value cards ===");
+
+            foreach (var item in handSorted)
+            {
+                if (item == handSorted.Max())
+                {
+                    Console.WriteLine(item);                       
+                }
+            }
         }
     }
 }

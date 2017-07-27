@@ -4,24 +4,24 @@ using System.Linq;
 using System.Text;
 
 /* Name: Wayne Pud
-* Date: July 25, 2017
+* Date: July 27, 2017
 * Description: It inherits from the CardList Abstract class
-* Version: 0.6 - Added deal method
+* Version: 0.7 - Added deal5 method for 5 cards
 */
 
 namespace COMP123_Lesson11B
 {
-    public class Deck: CardList
+    public class Deck : CardList
     {
         //Private instance variables
         private Random _random;
 
-        
+
 
         //Public properties
 
         //Constructor
-        
+
 
         /// <summary>
         /// This is the initialize method
@@ -39,14 +39,13 @@ namespace COMP123_Lesson11B
                 {
                     this.Add(new Card((Face)face, (Suit)suit));
                 }
-            }          
+            }
         }
 
         //Public Methods
         public override string ToString()
         {
             string outputString = "";
-            outputString += ("-------------Original deck Number of Cards:--------------");
             outputString += ("Number of cards: " + this.Count + "\n");
 
 
@@ -55,7 +54,7 @@ namespace COMP123_Lesson11B
                 outputString += "The " + card.Face + " of " + card.Suit + "\n";
             }
 
-            return outputString; 
+            return outputString;
         }
 
         /// <summary>
@@ -88,11 +87,37 @@ namespace COMP123_Lesson11B
         /// This method returns the top card of the deck
         /// </summary>
         /// <returns></returns>
-        public Card Deadl1()
+        public Card Deal1()
         {
+            
             Card topCard = this[0];
             this.RemoveAt(0); //this removes the top card from the deck
+
+            // for testing/debugging
+            Console.WriteLine("Dealt 1 card - Size of Deck: " + this.Count);
+
             return topCard;
         }
+
+        /// <summary>
+        /// This method Deal5 is to deal 5 cards as required in lab25
+        /// </summary>
+        /// <returns></returns>
+        public Hand Deal5()
+        {
+            Console.WriteLine("=====The current size of deck: " + this.Count +"=====");
+            Hand topHand = new Hand();
+
+            for (int i = 0; i < 5; i++)
+            {                
+                Card topCard = this[0];  
+                topHand.Add(this[0]);
+                this.RemoveAt(0);       //this removes the card indicated by value i from 0 to 5   
+                Console.WriteLine("Dealt card {0} = {1} of {2} || Deck size = {3}", i+1, topCard.Face, topCard.Suit, this.Count);             
+            }
+            return topHand;
+        }
+
+
     }
 }
