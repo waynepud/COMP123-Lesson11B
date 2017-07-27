@@ -5,13 +5,13 @@ using System.Text;
 
 /* Name: Wayne Pud
 * Date: July 25, 2017
-* Description: It inherits from the list generic and uses card as base type
-* Version: 0.2 - refactored shuffle method
+* Description: It inherits from the CardList Abstract class
+* Version: 0.3 - refactored to extend CardList abstract class
 */
 
 namespace COMP123_Lesson11B
 {
-    public class Deck: List<Card>
+    public class Deck: CardList
     {
         //Private instance variables
         private Random _random;
@@ -21,16 +21,13 @@ namespace COMP123_Lesson11B
         //Public properties
 
         //Constructor
-        public Deck()
-        {
-            this._initialize();
-        }
+        
 
         /// <summary>
         /// This is the initialize method
         /// </summary>
         //Private Methods
-        public void _initialize()
+        protected override void _initialize()
         {
             // Initialize the pseudo random number generator
             this._random = new Random();
