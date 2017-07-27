@@ -6,7 +6,7 @@ using System.Text;
 /* Name: Wayne Pud
 * Date: July 25, 2017
 * Description: It inherits from the CardList Abstract class
-* Version: 0.5 - refactored the ToString method to include a header
+* Version: 0.6 - Added deal method
 */
 
 namespace COMP123_Lesson11B
@@ -82,6 +82,17 @@ namespace COMP123_Lesson11B
                 //this[firstCard].Face = tempCard.Face;
                 //this[firstCard].Suit = tempCard.Suit;
             }
+        }
+
+        /// <summary>
+        /// This method returns the top card of the deck
+        /// </summary>
+        /// <returns></returns>
+        public Card Deadl1()
+        {
+            Card topCard = this[0];
+            this.RemoveAt(0); //this removes the top card from the deck
+            return topCard;
         }
     }
 }
