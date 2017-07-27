@@ -6,7 +6,7 @@ using System.Text;
 /* Name: Wayne Pud
 * Date: July 25, 2017
 * Description: It inherits from the CardList Abstract class
-* Version: 0.3 - refactored to extend CardList abstract class
+* Version: 0.5 - refactored to ToString method to include a header
 */
 
 namespace COMP123_Lesson11B
@@ -46,6 +46,10 @@ namespace COMP123_Lesson11B
         public override string ToString()
         {
             string outputString = "";
+            outputString += ("-------------Original deck Number of Cards:--------------");
+            outputString += ("Number of cards: " + this.Count + "\n");
+
+
             foreach (Card card in this)
             {
                 outputString += "The " + card.Face + " of " + card.Suit + "\n";
